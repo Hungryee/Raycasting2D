@@ -108,29 +108,11 @@ public class Ball {
                 closestWall.show(g, rays[k].cast(closestWall)[0], rays[k].cast(closestWall)[1], rays[k - 1].cast(closestWall)[0], rays[k - 1].cast(closestWall)[1]);
             }
             g.setColor(new Color(0.8f,0.8f,0.6f, alpha/2));
-
             if (closest!=null){
-                double x0 = (rays[k].x1);
-                double y0 = (rays[k].y1);
-                for (int i = 0; i < lightRes; i++) {
-                    g.setColor(new Color(0.8f-(0.8f-0.1f)*i/lightRes,0.8f-(0.8f-0.1f)*i/lightRes,0.6f-(0.6f-0.1f)*i/lightRes, alpha/2));
-
-                    g.drawLine((int) x0, (int) y0,(int) (rays[k].x1+(closest[0]-rays[k].x1)/lightRes*(i+1)),(int) (rays[k].y1+(closest[1]-rays[k].y1)/lightRes*(i+1)));
-                    x0 = rays[k].x1+(closest[0]-rays[k].x1)/lightRes*(i+1);
-                    y0 = rays[k].y1+(closest[1]-rays[k].y1)/lightRes*(i+1);
-                }
+                g.drawLine((int) rays[k].x1,(int) rays[k].y1, (int) closest[0],(int) closest[1]);
             }else{
-                double x0 = (rays[k].x1);
-                double y0 = (rays[k].y1);
-                for (int i = 0; i < lightRes; i++) {
-                    g.setColor(new Color(0.8f-(0.8f-0.1f)*i/lightRes,0.8f-(0.8f-0.1f)*i/lightRes,0.6f-(0.6f-0.1f)*i/lightRes, alpha/2));
-
-                    g.drawLine((int) x0, (int) y0,(int) (rays[k].x1+(rays[k].x2-rays[k].x1)/lightRes*(i+1)),(int) (rays[k].y1+(rays[k].y2-rays[k].y1)/lightRes*(i+1)));
-                    x0 = rays[k].x1+(rays[k].x2-rays[k].x1)/lightRes*(i+1);
-                    y0 = rays[k].y1+(rays[k].y2-rays[k].y1)/lightRes*(i+1);
-                }
+                g.drawLine((int) rays[k].x1,(int) rays[k].y1, (int) rays[k].x2,(int) rays[k].y2);
             }
-
             blocks[k] = record;
         }
 

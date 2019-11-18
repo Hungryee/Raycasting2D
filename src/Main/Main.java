@@ -30,6 +30,7 @@ public class Main extends JPanel implements MouseMotionListener, KeyListener {
     public static double time = 0;
     public static double blockSize;
     public static double viewOff = 0;
+    public static int lightRes = 50;
     Main(){
         setFocusable(true);
         b = new Ball();
